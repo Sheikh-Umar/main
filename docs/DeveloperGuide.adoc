@@ -504,7 +504,7 @@ We are using `java.util.logging` package for logging. The `LogsCenter` class is 
 
 Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: `config.json`).
 
-=== Alias Commands feature [Currently for add, list, clear, and edit]
+=== Alias Commands feature
 
 ==== Current Implementation
 
@@ -515,30 +515,26 @@ The feature is implemented this way to utilise the command java documents that a
 
 This feature is implemented to allow a user to enter a command without specifying the entire word of the command. +
 
-=== Identifying a Duplicate Lead feature [Planning to add]
+=== Identifying a Duplicate Lead feature
 
 ==== Current Implementation
 The CRM application will ensure that every lead in the address book is unique. +
 
-The feature is implemented by checking the phone number and email address of a new lead with all of the phone numbers and email addresses of all leads and contacts in its respective hash sets in the add command. +
+The feature is implemented by checking the phone number and email address of a new lead with all of the phone numbers and email addresses of all leads and contacts. +
 
 The feature will be implemented on the add command because the current application detects duplicates at the add command. +
 
-The phone number and email address of a lead will be checked in two respective hash sets.
-If any of these hash sets contain either the phone number of email address of a lead,
-the CRM application will display a message that the lead is a duplicate and will reject this lead.
+The phone number and email address of a lead will be through the list of Leads and Contacts.
+If either the phone number or the email address of a Lead to be added is found,
+the CRM application will display a message that the Lead is a duplicate and will reject this lead.
 The following action diagram shows how the operation of identifying a duplicate lead works:
 
 image::DetectDuplicateActivityDiagram.png[width="800"]
 
 ==== Design Implementation
 ===== How to implement identifying a duplicate
-* **Alternative 1 (current choice):** Save the phone numbers of all leads in in a hashset.
-** Pros: Search will be performed in constant time.
-** Cons: Nil.
-* **Alternative 2:** Save the phone numbers of all leads in in a list.
-** Pros: Phone numbers can be arranged in a certain order.
-** Cons: Search will be performed in linear time, which is longer than constant time.
+* **Alternative 1 (current choice):** Iterate through the list of Leads and Contacts.
+** Pros: Search will be performed in linear time.
 
 == Documentation
 
@@ -961,13 +957,11 @@ David Ten: +
 Umar: +
 **Major feature** : Duplicate Detection
 
-* identifying different ways that a lead can be a duplicate. +
-* In the sales industry, the same lead may be stored in the CRM application in different forms.
-(Example: A lead already in the CRM application is about to be entered into the CRM application
+* Identifying a duplicate. +
+* In the sales industry, the same lead may be stored in the CRM application in different forms but retains the same information.
+(Example: A Lead already in the CRM application is about to be entered into the CRM application
 in the form of last name-first name. The CRM application will not detect this duplicate
-and successfully store this lead. Now the CRM application has a duplicate.
-Other examples of duplicate detection include rejecting a lead as he/she has the same
-phone number as a lead/contact in the CRM application.
+and successfully store this lead. Now the CRM application has a duplicate.)
 
 **Minor feature** : Command Alias
 
@@ -1040,7 +1034,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |salesperson |obtain list solely on either Leads or Contacts|identify who to promote an item to and who has bought an item from me
 
-|`* * *` |salesperson |identify a duplicate lead based on reverse ordering of name|not have redundant data in my CRM
+|`* * *` |salesperson |identify duplicates|not have redundant data in my CRM
 
 |`* * *` |salesperson |login to LinkedIn|Sync my LinkedIn contacts
 
@@ -1055,6 +1049,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |`* *` |health-conscious salesperson |change the color theme|prevent eye fatigue
 
 |`* *` |new salesperson |bulk import leads|populate my CRM-Book
+
+|`*` |salesperson |sort Leads and Contacts list based on importance|identify priority Leads and Contacts
 
 |`* *` |salesperson |find a lead or contact by name |locate details of persons without having to go through the entire list
 

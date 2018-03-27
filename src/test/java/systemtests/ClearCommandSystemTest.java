@@ -63,6 +63,7 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardUnchanged();
 
+        //@@author Sheikh-Umar
         /* Case: clear empty address book using alias-> cleared */
         assertCommandSuccess(ClearCommand.COMMAND_ALIAS);
         assertSelectedCardUnchanged();
