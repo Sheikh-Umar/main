@@ -121,6 +121,7 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
+        //@@author: Sheikh-Umar
         /* Case: find address of person in address book using alias command -> 0 persons found */
         command = FindCommand.COMMAND_ALIAS + " " + DANIEL.getAddress().value;
         assertCommandSuccess(command, expectedModel);

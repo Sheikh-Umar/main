@@ -515,30 +515,26 @@ The feature is implemented this way to utilise the command java documents that a
 
 This feature is implemented to allow a user to enter a command without specifying the entire word of the command. +
 
-=== Identifying a Duplicate Lead feature [Planning to add]
+=== Identifying a Duplicate Lead feature
 
 ==== Current Implementation
-The CRM application will ensure that every lead in the address book is unique. +
+The CRM-Book will ensure that non-duplicates. +
 
-The feature is implemented by checking the phone number and email address of a new lead with all of the phone numbers and email addresses of all leads and contacts in its respective hash sets in the add command. +
+The feature is implemented by checking the phone number and email address of a new lead with all of the phone numbers and email addresses of all Leads and Contacts currently in the CRM-Book. +
 
 The feature will be implemented on the add command because the current application detects duplicates at the add command. +
 
-The phone number and email address of a lead will be checked in two respective hash sets.
-If any of these hash sets contain either the phone number of email address of a lead,
-the CRM application will display a message that the lead is a duplicate and will reject this lead.
+The phone number and email address of a Lead to be added will be checked will all Leads and Contacts stored in a CRM-Book.
+If any of the Leads/Contacts in the CRM-Book has either the phone number or email address of a Lead to be added, the CRM application will display a message that the lead is a duplicate and will reject this lead.
 The following action diagram shows how the operation of identifying a duplicate lead works:
 
 image::DetectDuplicateActivityDiagram.png[width="800"]
 
 ==== Design Implementation
 ===== How to implement identifying a duplicate
-* **Alternative 1 (current choice):** Save the phone numbers of all leads in in a hashset.
-** Pros: Search will be performed in constant time.
-** Cons: Nil.
-* **Alternative 2:** Save the phone numbers of all leads in in a list.
-** Pros: Phone numbers can be arranged in a certain order.
-** Cons: Search will be performed in linear time, which is longer than constant time.
+* **Alternative 1 (current choice):** Iterate through the list that stores all Leads and Contacts and identify a Lead/Contact with the same phone number or email address as a
+Lead to be added.
+** Pros: Identify a duplicate in linear time.
 
 == Documentation
 
@@ -959,15 +955,14 @@ David Ten: +
 * This allows them to sell to a new account using their old Contact.
 
 Umar: +
-**Major feature** : Duplicate Detection
+**Major feature** : Ensuring non-duplicate data is retrievable instantly. +
 
-* identifying different ways that a lead can be a duplicate. +
-* In the sales industry, the same lead may be stored in the CRM application in different forms.
-(Example: A lead already in the CRM application is about to be entered into the CRM application
-in the form of last name-first name. The CRM application will not detect this duplicate
-and successfully store this lead. Now the CRM application has a duplicate.
-Other examples of duplicate detection include rejecting a lead as he/she has the same
-phone number as a lead/contact in the CRM application.
+* In the sales industry, duplicates come in the form of different ordering of name and unique addresses.
+However, key information such as the phone number and email address will remain the same in these duplicates.
+Hence, the CRM aims to detect a duplicate based on this information.
+However, the lead will have the same phone number or email address. Hence, the CRM aims to tackle this issue
+* Furthermore, a salesperson may want to view a list of either Leads or Contacts only rather than a list of all List and Contacts.
+Hence, the CRM aims to assist salespeople who want to keep track of the Leads and Contacts stored.
 
 **Minor feature** : Command Alias
 

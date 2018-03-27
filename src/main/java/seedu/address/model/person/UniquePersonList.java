@@ -26,7 +26,7 @@ public class UniquePersonList implements Iterable<Person> {
     //@@author Sheikh-Umar
     /**
      * Returns true if the list contains a lead or contact
-     * with the same phone number or email address as the given argument.
+     * with the same phone number and email address as the given argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
