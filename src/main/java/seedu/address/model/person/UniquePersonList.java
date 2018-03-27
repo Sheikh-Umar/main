@@ -5,7 +5,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
 import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.CollectionUtil;
@@ -24,12 +23,22 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
+    //@@author Sheikh-Umar
     /**
-     * Returns true if the list contains an equivalent person as the given argument.
+     * Returns true if the list contains a lead or contact
+     * with the same phone number or email address as the given argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
-        return internalList.contains(toCheck);
+        //@@author Sheikh-Umar
+        for(int i = 0; i < internalList.size(); i++) {
+            Person curr = internalList.get(i);
+            if(curr.getPhone().equals(toCheck.getPhone())
+                || curr.getEmail().equals(toCheck.getEmail())) {
+                    return true;
+            }
+        }
+        return false;
     }
 
     /**
