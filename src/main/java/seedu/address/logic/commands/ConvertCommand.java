@@ -28,7 +28,9 @@ import seedu.address.model.tag.Tag;
 public class ConvertCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "convert";
+    //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "con";
+    //@@author Sheikh-Umar
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Converts the selected Lead to a Contact "
             + "by the index number used in the last person listing. "

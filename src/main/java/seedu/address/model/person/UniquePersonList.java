@@ -25,7 +25,6 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
-    //@@author Sheikh-Umar
     /**
      * Returns true if the list contains either phone number or email address of given argument.
      */
@@ -40,6 +39,7 @@ public class UniquePersonList implements Iterable<Person> {
             }
         }
         return false;
+        //@@author Sheikh-Umar
     }
 
     /**
