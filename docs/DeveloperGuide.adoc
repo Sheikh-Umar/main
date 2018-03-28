@@ -1063,13 +1063,9 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |salesperson |see my calendar |schedule meetings without conflicting
 
-<<<<<<< HEAD
-|`*` |salesperson |see which Leads and Contacts are dealing with the same type of product|recommend potential sales partners to Leads who are seeking sales experience
-
 |`*` |salesperson |schedule a meeting using zoom |schedule meetings easily and with a link other salespeople can use
 =======
 |`* *` |salesperson |schedule a meeting using Google Hangouts |meet my leads online more efficiently
->>>>>>> c1b83adf18ce7beaa28dd81052c68606c91f5aaa
 
 |`* *` |salesperson |be reminded when a contract is expiring |contact my contact for renewal
 
