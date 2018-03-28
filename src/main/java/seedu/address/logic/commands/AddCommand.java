@@ -35,7 +35,7 @@ public class AddCommand extends UndoableCommand {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New Lead added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "Duplicate detected. Lead is rejected.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This Lead or Contact is already in the CRM Book.";
 
     private final Lead toAdd;
 
