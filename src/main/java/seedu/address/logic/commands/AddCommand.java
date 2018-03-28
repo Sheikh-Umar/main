@@ -36,7 +36,7 @@ public class AddCommand extends UndoableCommand {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "Duplicate Lead detected. Lead is rejected.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Duplicate entry detected. Lead is rejected.";
 
     private final Lead toAdd;
 
