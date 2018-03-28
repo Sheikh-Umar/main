@@ -1128,13 +1128,13 @@ Use case ends.
 Use case ends.
 
 * 2a. Lead entered has a phone number or email address stored earlier.
-** 2a1. CRM Book displays message that duplicate is detected and rejects Lead.
+** 2a1. CRM Book displays message that a duplicate is detected and rejects Lead.
 +
 Use case ends.
 
 * 2b. Lead entered does not have a phone number or email address stored earlier.
-** 2b1. CRM Book adds Lead.
-** 2b2. CRM Book displays message that Lead has been added.
+** 2b1. CRM Book adds the Lead.
+** 2b2. CRM Book displays message that the Lead has been added.
 +
 Use case ends.
 
@@ -1143,7 +1143,7 @@ Use case ends.
 *MSS*
 
 1. User enters command for list of either Lead or Contact.
-2. CRM retrieves Leads or Contacts.
+2. CRM retrieves the list of either Leads or Contacts.
 3. User sees the desired list.
 
 *Extensions*
