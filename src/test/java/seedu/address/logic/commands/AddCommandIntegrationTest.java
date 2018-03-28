@@ -13,7 +13,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Lead;
-import seedu.address.testutil.PersonBuilder;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code AddCommand}.
@@ -26,7 +25,6 @@ public class AddCommandIntegrationTest {
     public void setUp() {
         model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     }
-    
     @Test
     public void execute_duplicatePerson_throwsCommandException() {
         Lead personInList = (Lead) model.getAddressBook().getPersonList().get(0);
