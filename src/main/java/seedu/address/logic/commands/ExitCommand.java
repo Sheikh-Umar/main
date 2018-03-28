@@ -13,7 +13,7 @@ public class ExitCommand extends Command {
     public static final String COMMAND_ALIAS = "ex";
     //@@author Sheikh-Umar
 
-    public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Address Book as requested ...";
+    public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting CRM Book as requested ...";
 
     @Override
     public CommandResult execute() {

@@ -12,7 +12,7 @@ public class ListCommand extends Command {
     public static final String COMMAND_ALIAS = "l";
     //@@author Sheikh-Umar
 
-    public static final String MESSAGE_SUCCESS = "Listed all persons";
+    public static final String MESSAGE_SUCCESS = "Listed all Leads and Contacts";
 
 
     @Override
