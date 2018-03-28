@@ -39,7 +39,7 @@ public class UniquePersonList implements Iterable<Person> {
             }
         }
         return false;
-        //@@author Sheikh-Umar
+        //@@author
     }
 
     /**
