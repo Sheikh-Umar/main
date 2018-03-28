@@ -1063,8 +1063,6 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |salesperson |see my calendar |schedule meetings without conflicting
 
-|`*` |salesperson |schedule a meeting using zoom |schedule meetings easily and with a link other salespeople can use
-
 |`* *` |salesperson |be reminded when a contract is expiring |contact my contact for renewal
 
 |`* *` |salesperson |add a remark to a Lead or Contact|record detailed information about them
@@ -1181,9 +1179,6 @@ Windows, Linux, Unix, OS-X
 
 [[private-contact-detail]] Private contact detail::
 A contact detail that is not meant to be shared with others
-
-[[zoom]] Zoom::
-A digital conferencing platform
 
 [appendix]
 == Product Survey
