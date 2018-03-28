@@ -13,6 +13,7 @@ import seedu.address.model.Model;
 public class UndoCommand extends Command {
 
     public static final String COMMAND_WORD = "undo";
+    //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "u";
 
     public static final String MESSAGE_SUCCESS = "Undo success!";

@@ -92,6 +92,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         command = DeleteCommand.COMMAND_WORD + " 0";
         assertCommandFailure(command, MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
 
+        //@@author Sheikh-Umar
         /* Case: invalid index (0) -> rejected */
         command = DeleteCommand.COMMAND_ALIAS + " 0";
         assertCommandFailure(command, MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
