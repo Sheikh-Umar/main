@@ -15,7 +15,9 @@ import seedu.address.model.person.Person;
 public class SelectCommand extends Command {
 
     public static final String COMMAND_WORD = "select";
+    //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "s";
+    //@@author Sheikh-Umar
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Selects the Lead or Contact identified by the index number used in the last Leads-Contacts listing.\n"

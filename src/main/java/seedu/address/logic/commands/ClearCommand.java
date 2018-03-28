@@ -10,9 +10,10 @@ import seedu.address.model.AddressBook;
 public class ClearCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "clear";
+    //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "c";
     public static final String MESSAGE_SUCCESS = "CRM Book has been cleared!";
-
+    //@@author Sheikh-Umar
 
     @Override
     public CommandResult executeUndoableCommand() {

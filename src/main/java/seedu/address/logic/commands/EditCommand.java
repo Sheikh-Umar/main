@@ -38,7 +38,9 @@ import seedu.address.model.tag.Tag;
 public class EditCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "edit";
+    //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "e";
+    //@@author Sheikh-Umar
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the Lead/Contact identified "
             + "by the index number used in the last Leads-Contacts listing. "
@@ -55,7 +57,9 @@ public class EditCommand extends UndoableCommand {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Lead/Contact: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This Lead/Cotact already exists in the CRM Book.";
+    //@@author Sheikh-Umar
+    public static final String MESSAGE_DUPLICATE_PERSON = "This Lead/Contact already exists in the CRM Book.";
+    //@@author Sheikh-Umar
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
