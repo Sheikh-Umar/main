@@ -30,10 +30,12 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command,  expectedResultMessage, defaultModel);
         assertSelectedCardUnchanged();
 
+        //@@author Sheikh-Umar
         /* Case: clear non-empty address book using alias -> cleared
          */
         assertCommandSuccess("   " + ClearCommand.COMMAND_ALIAS + " ab12   ");
         assertSelectedCardUnchanged();
+        //@@author Sheikh-Umar
 
         /* Case: undo clearing address book done using alias-> original address book restored */
         command = UndoCommand.COMMAND_WORD;
@@ -63,9 +65,11 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(ClearCommand.COMMAND_WORD);
         assertSelectedCardUnchanged();
 
+        //@@author Sheikh-Umar
         /* Case: clear empty address book using alias-> cleared */
         assertCommandSuccess(ClearCommand.COMMAND_ALIAS);
         assertSelectedCardUnchanged();
+        //@@author Sheikh-Umar
 
         /* Case: mixed case command word -> rejected */
         assertCommandFailure("ClEaR", MESSAGE_UNKNOWN_COMMAND);
