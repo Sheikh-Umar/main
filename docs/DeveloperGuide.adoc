@@ -1071,6 +1071,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |salesperson with many entries in the CRM|sort people by name|search for them easily
 
+|`* *` |salesperson |schedule a meeting using Google Hangouts |meet my leads online more efficiently
+
 |`*` |salesperson |see the type of marketing materials an account is interacting with |know what other materials to send to them
 
 |=======================================================================
