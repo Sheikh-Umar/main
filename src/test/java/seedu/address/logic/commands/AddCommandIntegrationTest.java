@@ -27,7 +27,6 @@ public class AddCommandIntegrationTest {
         model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     }
 
-    /*
     @Test
     public void execute_newPerson_success() throws Exception {
         Lead validPerson = (Lead) new PersonBuilder().build();
@@ -38,8 +37,7 @@ public class AddCommandIntegrationTest {
         assertCommandSuccess(prepareCommand(validPerson, model), model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validPerson), expectedModel);
     }
-    */
-
+    
     @Test
     public void execute_duplicatePerson_throwsCommandException() {
         Lead personInList = (Lead) model.getAddressBook().getPersonList().get(0);
