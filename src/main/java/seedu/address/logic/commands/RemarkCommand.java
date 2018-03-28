@@ -24,7 +24,7 @@ public class RemarkCommand extends UndoableCommand {
     public static final String COMMAND_WORD = "remark";
     public static final String COMMAND_ALIAS = "rem";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the Lead/Contat identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the Lead/Contact identified "
             + "by the index number used in the last Leads-Contacts listing. "
             + "Existing remark will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
