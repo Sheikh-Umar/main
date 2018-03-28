@@ -30,7 +30,7 @@ public class ConvertCommand extends UndoableCommand {
     public static final String COMMAND_WORD = "convert";
     //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "con";
-    //@@author Sheikh-Umar
+    //@@author
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Converts the selected Lead to a Contact "
             + "by the index number used in the last person listing. "
@@ -39,7 +39,9 @@ public class ConvertCommand extends UndoableCommand {
 
     public static final String MESSAGE_CONVERT_PERSON_SUCCESS = "Converted Person: %1$s";
     public static final String MESSAGE_NOT_CONVERTED = "Person is already a Contact.";
+    //@@author Sheikh-Umar
     public static final String MESSAGE_DUPLICATE_PERSON = "This Lead/Contact already exists in the CRM Book.";
+    //@@author
 
     private final Index index;
 

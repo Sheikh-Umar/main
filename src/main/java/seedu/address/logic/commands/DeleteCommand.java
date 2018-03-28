@@ -19,14 +19,16 @@ public class DeleteCommand extends UndoableCommand {
     public static final String COMMAND_WORD = "delete";
     //@@author Sheikh-Umar
     public static final String COMMAND_ALIAS = "d";
-    //@@author Sheikh-Umar
+    //@@author
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the Lead or Contact identified by the index number used in the last Leads-Contacts listing.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
+    //@@author Sheikh-Umar
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Lead/Contact: %1$s";
+    //@@author
 
     private final Index targetIndex;
 

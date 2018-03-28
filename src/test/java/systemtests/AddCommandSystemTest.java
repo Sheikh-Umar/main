@@ -79,22 +79,24 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, model, expectedResultMessage);
 
-        //@@author Sheikh-Umar
         /* Case: add a person with all fields same as another person in the address book except name -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND;
+        //@@author Sheikh-Umar
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add a person with all fields same as another person in the address book except phone -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY)
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND;
-        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
-
         //@@author Sheikh-Umar
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
+
         /* Case: add a person with all fields same as another person in the address book except email -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_BOB)
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
@@ -102,6 +104,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
                 + TAG_DESC_FRIEND;
         //@@author Sheikh-Umar
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add a person with all fields same as another person in the address book except address -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
@@ -110,6 +113,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
                 + TAG_DESC_FRIEND;
         //@@author Sheikh-Umar
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add to empty address book -> added */
         deleteAllPersons();
@@ -157,6 +161,7 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         /* Case: missing name -> rejected */
         command = AddCommand.COMMAND_ALIAS + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        //@@author
 
         /* Case: missing phone -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
