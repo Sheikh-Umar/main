@@ -26,39 +26,21 @@ public class UniquePersonList implements Iterable<Person> {
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
     /**
-     * Returns true if the list contains either phone number or email address of argument.
+     * Returns true if the list contains an equivalent person as the given argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
-        //@@author Sheikh-Umar
-        boolean isDuplicate;
-        isDuplicate = findsDuplicate(toCheck);
-        return isDuplicate;
-    }
-    //@@author
-
-    /**
-     * Returns true if Lead to be added has either phone number or email address stored earlier.
-     */
-    private boolean findsDuplicate(Person lead) {
-        for (int i = 0; i < internalList.size(); i++) {
-            Person current = internalList.get(i);
-            if (current.getPhone().equals(lead.getPhone())
-                    || current.getEmail().equals(lead.getEmail())) {
-                return true;
-            }
-        }
-        return false;
+        return internalList.contains(toCheck);
     }
 
     /**
      * Adds a person to the list.
      *
-     * @throws DuplicatePersonException if the Lead to add is a duplicate of an existing Lead or Contact in the list.
+     * @throws DuplicatePersonException if the person to add is a duplicate of an existing person in the list.
      */
     public void add(Person toAdd) throws DuplicatePersonException {
         requireNonNull(toAdd);
-        if (internalList.contains(toAdd)) {
+        if (contains(toAdd)) {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
@@ -95,6 +77,7 @@ public class UniquePersonList implements Iterable<Person> {
         if (!target.equals(editedPerson) && internalList.contains(editedPerson)) {
             throw new DuplicatePersonException();
         }
+
         internalList.set(index, editedPerson);
     }
 
