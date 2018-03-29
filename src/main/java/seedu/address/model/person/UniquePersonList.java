@@ -25,33 +25,46 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
-    //@@author Sheikh-Umar
     /**
-     * Returns true if the list contains argument or either phone number or email address of argument.
+     * Returns true if the list contains either phone number or email address of argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
+        //@@author Sheikh-Umar
+        boolean isDuplicate;
+        isDuplicate = findsDuplicate(toCheck);
+        return isDuplicate;
+    }
+    //@@author
+
+    /**
+     * Returns true if Lead to be added has either phone number or email address stored earlier.
+     */
+    private boolean findsDuplicate(Person lead) {
         for (int i = 0; i < internalList.size(); i++) {
             Person current = internalList.get(i);
-            if (current.getPhone().equals(toCheck.getPhone())
-                    || current.getEmail().equals(toCheck.getEmail())) {
+            if (current.getPhone().equals(lead.getPhone())
+                    || current.getEmail().equals(lead.getEmail())) {
                 return true;
             }
         }
         return false;
     }
-    //@@author
 
     /**
      * Adds a person to the list.
      *
-     * @throws DuplicatePersonException if the person to add is a duplicate of an existing person in the list.
+     * @throws DuplicatePersonException if the Lead to add is a duplicate of an existing Lead or Contact in the list.
      */
     public void add(Person toAdd) throws DuplicatePersonException {
         requireNonNull(toAdd);
-        if (contains(toAdd)) {
+        //@@author Sheikh-Umar
+        boolean isDuplicate;
+        isDuplicate = findsDuplicate(toAdd);
+        if (isDuplicate) {
             throw new DuplicatePersonException();
         }
+        //@@author
         internalList.add(toAdd);
     }
 
@@ -83,10 +96,15 @@ public class UniquePersonList implements Iterable<Person> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.equals(editedPerson) && internalList.contains(editedPerson)) {
-            throw new DuplicatePersonException();
+        //@@author Sheikh-Umar
+        if (!target.equals(editedPerson)) {
+            boolean isDuplicate;
+            isDuplicate = findsDuplicate(editedPerson);
+            if (isDuplicate) {
+                throw new DuplicatePersonException();
+            }
         }
-
+        //@@author
         internalList.set(index, editedPerson);
     }
 
