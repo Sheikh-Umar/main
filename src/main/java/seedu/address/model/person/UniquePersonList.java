@@ -58,13 +58,9 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void add(Person toAdd) throws DuplicatePersonException {
         requireNonNull(toAdd);
-        //@@author Sheikh-Umar
-        boolean isDuplicate;
-        isDuplicate = findsDuplicate(toAdd);
-        if (isDuplicate) {
+        if (internalList.contains(toAdd)) {
             throw new DuplicatePersonException();
         }
-        //@@author
         internalList.add(toAdd);
     }
 
@@ -96,15 +92,9 @@ public class UniquePersonList implements Iterable<Person> {
             throw new PersonNotFoundException();
         }
 
-        //@@author Sheikh-Umar
-        if (!target.equals(editedPerson)) {
-            boolean isDuplicate;
-            isDuplicate = findsDuplicate(editedPerson);
-            if (isDuplicate) {
-                throw new DuplicatePersonException();
-            }
+        if (!target.equals(editedPerson) && internalList.contains(editedPerson)) {
+            throw new DuplicatePersonException();
         }
-        //@@author
         internalList.set(index, editedPerson);
     }
 
