@@ -26,21 +26,36 @@ public class UniquePersonList implements Iterable<Person> {
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
     /**
-     * Returns true if the list contains either phone number or email address of given argument.
+     * Returns true if the list contains argument or either phone number or email address of argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
         //@@author Sheikh-Umar
-        for (int i = 0; i < internalList.size(); i++) {
+        boolean isDuplicate;
+        if (internalList.contains(toCheck)) {
+            return internalList.contains(toCheck);
+        }
+        else {
+            isDuplicate = doesSecondCheck(toCheck);
+        }
+        return isDuplicate;
+    }
+
+    /*
+     * Does second check by checking if list contains
+     * either phone number or email address of argument.
+     */
+    public boolean doesSecondCheck(Person toCheck) {
+        for(int i = 0; i < internalList.size(); i++) {
             Person current = internalList.get(i);
-            if (current.getPhone().equals(toCheck.getPhone())
+            if(current.getPhone().equals(toCheck.getPhone())
                     || current.getEmail().equals(toCheck.getEmail())) {
                 return true;
             }
         }
         return false;
-        //@@author
     }
+    //@@author
 
     /**
      * Adds a person to the list.
