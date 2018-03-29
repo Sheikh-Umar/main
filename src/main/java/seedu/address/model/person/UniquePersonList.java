@@ -26,7 +26,8 @@ public class UniquePersonList implements Iterable<Person> {
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
 
     /**
-     * Returns true if the list contains an equivalent person as the given argument.
+     * Returns true if the list contains either the phone number or email address
+     * of the given argument.
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
