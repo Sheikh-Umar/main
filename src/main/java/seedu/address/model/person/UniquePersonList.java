@@ -31,7 +31,7 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
-        for(int i = 0; i < internalList.size(); i++) {
+        for (int i = 0; i < internalList.size(); i++) {
             Person current = internalList.get(i);
             if (current.getPhone().equals(toCheck.getPhone())
                     || current.getEmail().equals(toCheck.getEmail())) {
