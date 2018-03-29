@@ -31,22 +31,7 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public boolean contains(Person toCheck) {
         requireNonNull(toCheck);
-        boolean isDuplicate;
-        if (internalList.contains(toCheck)) {
-            return internalList.contains(toCheck);
-        }
-        else {
-            isDuplicate = doesSecondCheck(toCheck);
-        }
-        return isDuplicate;
-    }
-
-    /*
-     * Does second check by checking if list contains
-     * either phone number or email address of argument.
-     */
-    public boolean doesSecondCheck(Person toCheck) {
-        for (int i = 0; i < internalList.size(); i++) {
+        for(int i = 0; i < internalList.size(); i++) {
             Person current = internalList.get(i);
             if (current.getPhone().equals(toCheck.getPhone())
                     || current.getEmail().equals(toCheck.getEmail())) {
