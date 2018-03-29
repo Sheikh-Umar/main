@@ -84,14 +84,18 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND;
-        assertCommandSuccess(command, toAdd);
+        //@@author Sheikh-Umar
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add a person with all fields same as another person in the address book except phone -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY)
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND;
-        assertCommandSuccess(command, toAdd);
+        //@@author Sheikh-Umar
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
 
         /* Case: add a person with all fields same as another person in the address book except email -> rejected */
@@ -99,14 +103,18 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
                 .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_BOB + ADDRESS_DESC_AMY
                 + TAG_DESC_FRIEND;
-        assertCommandSuccess(command, toAdd);
+        //@@author Sheikh-Umar
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add a person with all fields same as another person in the address book except address -> rejected */
         toAdd = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
                 .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND).build();
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_BOB
                 + TAG_DESC_FRIEND;
-        assertCommandSuccess(command, toAdd);
+        //@@author Sheikh-Umar
+        assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        //@@author
 
         /* Case: add to empty address book -> added */
         deleteAllPersons();
