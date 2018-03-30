@@ -358,7 +358,6 @@ image::UndoRedoActivityDiagram.png[width="650"]
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two * different things.
 // end::undoredo[]
 
-
 // tag::remark[]
 === Remark feature
 ==== Current Implementation
@@ -377,6 +376,9 @@ public class RemarkCommand extends UndoableCommand {
     }
 }
 ----
+The following diagram shows the inheritance diagram for `RemarkCommand`.
+
+image::RemarkCommandDiagram.png[width="300"]
 
 The model `Person` is modified to have a new field `Remark`.
 
@@ -404,10 +406,30 @@ For example, when a user type `remark 2 r\Likes to swim`. Then the remark field 
 
 To allow easy identification of different tags, a color tag feature is introduced.
 
-A string array is declared in PersonCard.java to include all the different colors for tags. These colors are defined, with their background color and text color spelled out, in the the DarkTheme.css file.
+A string array is declared in PersonCard.java to include a set of colors for tags.
+[source,java]
+----
+private static final String[] TAG_COLORS =
+        { "blue", "cyan", "green", "magenta", "orange", "pink", "red", "yellow", "teal", "brown" };
+----
+
+These colors are defined, with their background color and text color spelled out, in the the DarkTheme.css file.
 
 A hash code of the tag name is used to select a color for the tag such that it would remain consistent between different runs of the software.
+[source,java]
+----
+private String getTagColorFor(String tagName) {
+    return TAG_COLORS[Math.abs(tagName.hashCode()) % TAG_COLORS.length];
+}
 
+private void initTags(Person person) {
+    person.getTags().forEach(tag -> {
+        Label tagLabel = new Label(tag.tagName);
+        tagLabel.getStyleClass().add(getTagColorFor(tag.tagName));
+        tags.getChildren().add(tagLabel);
+    });
+}
+----
 ==== Design Considerations
 
 ===== Aspect: Implementation of color tags
@@ -418,7 +440,45 @@ A hash code of the tag name is used to select a color for the tag such that it w
 * **Alternative 2:** Allow user to set a color for the tag
 ** Pros: Allows more freedom for user customization.
 ** Cons: Takes more time to implement color tags.
-// end::remark[]
+// end::colortag[]
+
+// tag::autocomplete[]
+=== Auto-Complete feature
+==== Current Implementation
+
+To allow fast typing of commands, auto-complete of commands is implemented.
+
+Auto-complete is implemented through the TextFields feature of ControlsFX.
+[source,java]
+----
+TextFields.bindAutoCompletion(commandTextField, Messages.AUTOCOMPLETE_FIELD);
+----
+All the command words are included in the AUTOCOMPLETE_FIELD string.
+[source,java]
+----
+public static final String[] AUTOCOMPLETE_FIELD = { AddCommand.COMMAND_WORD, ClearCommand.COMMAND_WORD,
+    ConvertCommand.COMMAND_WORD, DeleteCommand.COMMAND_WORD, EditCommand.COMMAND_WORD, ExitCommand.COMMAND_WORD,
+    FindCommand.COMMAND_WORD, HelpCommand.COMMAND_WORD, HistoryCommand.COMMAND_WORD,
+    LinkedInLoginCommand.COMMAND_WORD, ListCommand.COMMAND_WORD, RedoCommand.COMMAND_WORD,
+    SelectCommand.COMMAND_WORD, UndoCommand.COMMAND_WORD, AddCommand.COMMAND_AUTO_COMPLETE};
+----
+In addition to all the command words, a COMMAND_AUTO_COMPLETE string, with both command word and prefixes, is also included for add command.
+[source,java]
+----
+public static final String COMMAND_AUTO_COMPLETE = COMMAND_WORD + " " + PREFIX_NAME + " "
+        + PREFIX_PHONE + " " + PREFIX_EMAIL + " " + PREFIX_ADDRESS + " " + PREFIX_TAG;
+----
+==== Design Considerations
+
+===== Aspect: Implementation of Auto-complete
+
+* **Alternative 1 (current choice):** All the commands that contain the typed input are shown. ie. When "a" is typed, both "add" and "clear" will be shown.
+** Pros: Allow new user to quickly learn the different command words.
+** Cons: When there are a lot of commands, efficiency of auto-complete decreases as user would have too many options to choose from.
+* **Alternative 2:** Only commands with the same sequence as the typed input are shown. ie. When "a" is typed, only "add" will be shown.
+** Pros: Higher efficiency of auto-complete.
+** Cons: New user might find this difficult to use as they are unfamillar with the command words.
+// end::autocomplete[]
 
 // tag::leadcontact[]
 === Leads and Contacts feature
@@ -430,9 +490,29 @@ To implement a CRM Book, Leads and Contacts must be differentiated so that they 
 
 In a CRM Book, users start by adding Leads, who are people they have not sold to yet. As they begin selling, the people who they have sold to become Contacts.
 
-Many existing commands like AddCommand have been modified to fit the new paradigm so that it only adds Leads.
+Many existing commands like `AddCommand` have been modified to fit the new paradigm so that it only adds Leads.
 
-A new conversion command ConvertCommand has been added to convert Leads into Contacts.
+A new conversion command `ConvertCommand` has been added to convert Leads into Contacts. The Sequence Diagram is shown:
+
+image::ConvertSequenceDiagram1.png[width="650"]
+
+When the user has selected a Contact instead of a Lead, an error is thrown with this code:
+
+[source,java]
+----
+public class ConvertCommand extends UndoableCommand {
+    @Override
+    protected void preprocessUndoableCommand() throws CommandException {
+        // ... get list of Persons ...
+        try {
+            oldLead = (Lead) lastShownList.get(index.getZeroBased());
+        } catch (ClassCastException cce) {
+            throw new CommandException(MESSAGE_NOT_CONVERTED);
+        }
+        newContact = createContact(oldLead);
+    }
+}
+----
 
 ==== Design Considerations
 
@@ -481,8 +561,39 @@ After the CRM Book has received the authorization code and the app secret from t
 ** Pros: Higher security, app secret not stored on GitHub
 ** Cons: Significantly harder to implement. Requires user to have a username and password for the server not stored on GitHub.
 **Additional Info:** See comments on Decrypter class for full argument
-
 // end::linkedinlogin[]
+
+// tag::bulkimport[]
+=== Bulk Import Feature
+==== Current Implementation
+
+To add a large number of persons to the CRM Book at the same time, a new command `ImportCommand` is implemented.
+
+The `ImportCommand` inherits from `Command`. It is implemented this way:
+[source, java]
+----
+public class ImportCommand extends Command {
+    @Override
+    public CommandResult execute() {
+        // … import logic …
+    }
+}
+----
+
+When an `ImportCommand` is called, the corresponding CSV file will be processed. Then persons will be added to CRM Book automatically like what a `AddCommand` can do but without manual typing.
+
+==== Design Considerations
+
+===== Aspect: CSV file format
+
+* **Alternative 1 (current choice):** Requires the CSV file to follow the given format
+** Pros: Easy to implement. No need to analyze too much about the file.
+** Cons: More work for users.
+* **Alternative 2:** Allow attributes not in order and allow different names for attributes
+** Pros: Hard to detect and implement.
+** Cons: More flexible to users. Can help users save time.
+// end::bulkimport[]
+
 
 === Logging
 
@@ -975,11 +1086,11 @@ Hence, doing a command using its alias will ensure he/she can do a certain comma
 ZHU Leyan: +
 **Major Feature** : Bulk Import of Leads
 
-* Allows a Salesperson to import a CSV file into the CRM Book +
-* Allows a Salesperson to import a large number of people into the CRM in one time.
+* Allows a salesperson to import a CSV file into the CRM Book +
+* Allows a salesperson to sort all persons by name.
 
 
-**Major Feature** : Remark Command
+**Minor Feature** : Remark Command
 
 * Allows a salesperson to add/remove/edit a remark of a person in the CRM Book +
 * This allows them to record some special information of a customer.
@@ -988,7 +1099,8 @@ Woody Lau: +
 **Major Feature** : Lead and Contact Creation
 
 * Breaks apart the Person class into Leads and Contacts +
-* Each will have their own functions and fields
+* Each will have their own functions and fields +
+* Conversion between Leads and Contacts will be supported.
 
 
 **Major Feature** : Account Creation
@@ -1109,35 +1221,39 @@ Use case ends.
 +
 Use case resumes at step 2.
 
-=== Use case: Detect a duplicate Lead or Contact
+
+=== Use case: User requests to import a CSV file to CRM Book
 
 *MSS*
 
-1. User enters a Lead to add
-2. CRM Book executes the add command
-3. User is notified on whether CRM has added or rejected the Lead
+1.  User enters command for importing file.
+2.  CRM Book processes the corresponding CSV file and lists all persons including newly added ones.
+3.  User requests to sort all persons by name.
+3.  CRM sorts all persons and lists them.
 +
 Use case ends.
 
 *Extensions*
 
 [none]
-* 1a. User entered the Lead information incorrectly.
-* 1b. User entered the add command incorrectly.
+* 1a. User enters an non-existent file.
 +
 [none]
 ** 1a1. CRM Book displays error message.
 +
 Use case ends.
-
-* 2a. Lead entered has a phone number or email address stored earlier.
-** 2a1. CRM Book displays message that a duplicate is detected and rejects Lead.
++
+* 1b. The file is not a CSV file.
++
+[none]
+** 1b1. CRM Book displays error message.
 +
 Use case ends.
-
-* 2b. Lead entered does not have a phone number or email address stored earlier.
-** 2b1. CRM Book adds the Lead.
-** 2b2. CRM Book displays message that the Lead has been added.
++
+* 3a. The CSV file is in wrong format.
++
+[none]
+** 3a1. CRM Book displays error message.
 +
 Use case ends.
 
@@ -1172,7 +1288,7 @@ Use case ends.
 3. User enters username and password
 4. CRM book completes oAuth2 process and gets api key
 5. User enters command to post to linkedIn
-6. Crm book prompts user to enter a post
+6. CRM book prompts user to enter a post
 7. User enters post to share to LinkedIn
 8. CRM book posts post to user's LinkedIn
 +
@@ -1193,6 +1309,63 @@ Use case resumes at step 5.
 ** 3a1. CRM book tells user to reenter credentials
 +
 Use case resumes at step 4.
+
+=== Use case: Auto-complete
+
+*MSS*
+
+1. User enters a letter.
+2. CRM book shows a drop down textfield with all the commands containing the typed letter.
+3. User selects the command he desires.
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. No commands contain the typed letter.
++
+Use case ends.
+
+=== Use case: Convert a Lead to a Contact
+
+*MSS*
+
+1. User requests a list of Leads and Contacts
+2. CRM Book shows the requested list
+3. User finds and selects the Lead to convert
+4. CRM Book determines if Lead can be converted and converts if possible
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. List is empty.
++
+Use case ends.
+
+* 3a. User selected a Contact, not a Lead.
++
+[none]
+** 3a1. CRM Book displays an error message.
++
+Use case resumes at step 2.
+
+* 3a. The given index is invalid.
++
+** 3a1. CRM Book displays an error message.
++
+Use case resumes at step 2.
+
+=== Use case: Color tag
+
+*MSS*
+
+1. User request to add a lead with a tag.
+2. CRM book assign a color to the tag.
++
+Use case ends.
 
 [appendix]
 == Non Functional Requirements
