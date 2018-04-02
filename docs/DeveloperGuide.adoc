@@ -1320,11 +1320,6 @@ Use case ends.
 ** 1a1. CRM Book displays error message.
 +
 Use case ends.
-+
-* 2a. Desired list is empty.
-** 2a1. CRM Book displays message that the desired list is empty.
-+
-Use case ends.
 
 === Use case: User posts to LinkedIn
 
