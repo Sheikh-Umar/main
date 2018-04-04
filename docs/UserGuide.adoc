@@ -112,10 +112,10 @@ Examples:
 Shows a list of all Leads and Contacts in the CRM. +
 Format: `l`, `list`
 
-=== Listing all Leads: `lleads`, `list_leads`
+=== Listing all Leads: `lleads`, `listleads`
 
 Shows a list of all Leads in the CRM. +
-Format: `lleads`, `list_leads`
+Format: `lleads`, `listleads`
 
 === Editing a person : `e`, `edit`
 
@@ -388,7 +388,7 @@ e.g. `f Chris`, `find James Jake`
 * *Linkedin_login* : `linklog`, `linkedin_login`
 * *Linkedin_share* : `linkshare [content]`, `linkedin_share [content]`
 * *List* : `l`, `list`
-* *List_leads* :`lleads`, `list_leads`
+* *Listleads* :`lleads`, `listleads`
 * *Help* : `h`, `help`
 * *Select* : `s INDEX`, `select INDEX` +
 e.g.`s 1`, `select 2`
