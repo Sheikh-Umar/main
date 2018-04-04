@@ -94,7 +94,7 @@ public class AddressBookParser {
         //@@author Sheikh-Umar
         case DisplayCommand.COMMAND_WORD:
         case DisplayCommand.COMMAND_ALIAS:
-            return new FindCommandParser().parse(arguments);
+            return new DisplayCommandParser().parse(arguments);
         //@@author
 
         case ClearCommand.COMMAND_WORD:
