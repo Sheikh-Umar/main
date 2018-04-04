@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import seedu.address.logic.commands.DisplayCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.TypeMatchesKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new DisplayCommand object
@@ -27,7 +27,7 @@ public class DisplayCommandParser implements Parser<DisplayCommand> {
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
 
-        return new DisplayCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        return new DisplayCommand(new TypeMatchesKeywordsPredicate(Arrays.asList(nameKeywords)));
     }
 
 }

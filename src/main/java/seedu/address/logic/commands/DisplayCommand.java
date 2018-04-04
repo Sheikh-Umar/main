@@ -1,7 +1,7 @@
 //@@author Sheikh-Umar
 package seedu.address.logic.commands;
 
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.TypeMatchesKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
@@ -16,9 +16,9 @@ public class DisplayCommand extends Command {
             + "Parameters: [KEYWORD]\n"
             + "Example: " + COMMAND_WORD + " Lead";
 
-    private final NameContainsKeywordsPredicate predicate;
+    private final TypeMatchesKeywordsPredicate predicate;
 
-    public DisplayCommand(NameContainsKeywordsPredicate predicate) {
+    public DisplayCommand(TypeMatchesKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 
