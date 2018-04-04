@@ -114,12 +114,12 @@ Format: `l`, `list`
 
 === Displaying all Leads: `disp`, `display`
 
-Shows a list of all Leads in the CRM. +
-Format: `disp Lead`, `display Lead`
+Shows a list of either Leads or Contacts in the CRM. +
+Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
 
 ****
 * The search is case insensitive. e.g `lead` will match `Lead`
-* Only a full word will be matched e.g. `Lead` will not match `Leads`
+* Only a full word will be matched e.g. `Contact` will not match `Contacts`
 ****
 
 === Editing a person : `e`, `edit`
