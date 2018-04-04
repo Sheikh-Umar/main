@@ -93,12 +93,6 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
 
-        //@@author Sheikh-Umar
-        case DisplayCommand.COMMAND_WORD:
-        case DisplayCommand.COMMAND_ALIAS:
-            return new DisplayCommandParser().parse(arguments);
-        //@@author
-
         case ChangeThemeCommand.COMMAND_WORD:
             return new ChangeThemeCommandParser().parse(arguments);
 
@@ -113,6 +107,12 @@ public class AddressBookParser {
         case ListCommand.COMMAND_WORD:
         case ListCommand.COMMAND_ALIAS:
             return new ListCommand();
+
+        //@@author Sheikh-Umar
+        case DisplayCommand.COMMAND_WORD:
+        case DisplayCommand.COMMAND_ALIAS:
+             return new DisplayCommandParser().parse(arguments);
+        //@@author
 
         case HistoryCommand.COMMAND_WORD:
         case HistoryCommand.COMMAND_ALIAS:
