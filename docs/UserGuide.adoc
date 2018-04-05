@@ -21,7 +21,7 @@ more optimally for future sales decisions.
 Unique features of this application include identifying if a Lead to be added in is a duplicate,
 scheduling appointments with Leads through the Calander, converting a Lead to a Contact after a sales transaction, and integrating LinkedIn to allow
 a salesperson to know if one of their contacts changed companies.
-*More importantly, CRM Book is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast,
+*More importantly, CRM Book is optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast,
 CRM Book can get your contact management tasks done faster than traditional GUI apps.
 Interested? Jump to the <<Quick Start>> to get started. Enjoy!
 
