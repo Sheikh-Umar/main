@@ -1315,7 +1315,7 @@ Use case ends.
 *Extensions*
 
 [none]
-* 1a. User enters keyword that is neither Lead nor Contact.
+* 1a. User enters a keyword that is neither Lead nor Contact.
 
 ** 1a1. CRM Book displays an empty list.
 +
