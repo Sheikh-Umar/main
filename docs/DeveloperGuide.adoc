@@ -1345,6 +1345,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |salesperson |find a lead or contact by name |locate details of persons without having to go through the entire list
 
+|`* *` |salesperson |find a lead or contact by phone number and email address |have more options to locate a Lead or Contact
+
 |`* *` |salesperson |find an account by name |locate details of accounts without having to go through the entire list
 
 |`* *` |salesperson |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
