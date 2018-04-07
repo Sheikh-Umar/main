@@ -200,7 +200,7 @@ Adds the Account Macrosoft to the 2nd person in the list
 
 === Locating persons by name: `f`, `find`
 
-Finds persons whose names contain any of the given keywords. +
+Finds Leads or Contacts based on name, phone number, or email address. +
 Format: `f KEYWORD [MORE_KEYWORDS]`, `find KEYWORD [MORE_KEYWORDS]`
 
 ****
