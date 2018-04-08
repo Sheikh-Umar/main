@@ -37,7 +37,6 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 
 == Contributions to the User Guide
 
-
 |===
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
