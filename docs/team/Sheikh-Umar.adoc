@@ -10,13 +10,13 @@
 
 CRM Book is a desktop application targeted for salespeople. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 This application allows salespeople to organize their Leads, Contacts, and Accounts that suits their liking, as well as address problems that symptomatic in the sales industry,
-such as identifying duplicates, and converting Leads to Contacts.
+such as identifying duplicates.
 
 == Summary of contributions
 
 * *Major enhancement*: Added the ability to retrieve a desired list of non-duplicate data.
-** What it does: Informs the user if a Lead to be added in is already in the CRM Boook either as a Lead or a Contact, and allows the user to retrieve a list of either Leads or Contacts.
-** Justification: Salespeople oftern face the issue of duplicate data as the CRM applications that they are using does not detect duplicates. Furthermore, the CRM application that they are using may not be able to display Leads and Contacts separately.
+** What it does: Informs the user if a Lead to be added in is already in the CRM Book either as a Lead or a Contact, and allows the user to retrieve a list of either Leads or Contacts.
+** Justification: Salespeople often face the issue of duplicate data as the CRM applications that they are using does not detect duplicates. Furthermore, the CRM application that they are using may not be able to display Leads and Contacts separately.
 Hence, this enhancement tackles this issues so that the user will have a more pleasant experience with a CRM application.
 ** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
 
@@ -31,11 +31,9 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 ** Documentation:
 *** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
+*** PRs reviewed (with non-trivial review comments): https://github.com/CS2103JAN2018-F11-B1/main/pull/158[#158], https://github.com/CS2103JAN2018-F11-B1/main/pull/159[#159]
 *** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
 *** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-
-_{you can add/remove categories in the list above}_
 
 == Contributions to the User Guide
 
@@ -46,14 +44,14 @@ _{you can add/remove categories in the list above}_
 
 include::../UserGuide.adoc[tag=undoredo]
 
-include::../UserGuide.adoc[tag=dataencryption]
-
 == Contributions to the Developer Guide
 
 |===
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=undoredo]
+include::../DeveloperGuide.adoc[tag=alias]
 
-include::../DeveloperGuide.adoc[tag=dataencryption]
+include::../DeveloperGuide.adoc[tag=duplicate]
+
+include::../DeveloperGuide.adoc[tag=display]
