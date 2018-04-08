@@ -15,7 +15,7 @@ endif::[]
 By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
 == Introduction
-
+//tag::description[]
 CRM Book application aims to assist salespeople in managing the information of leads and contacts
 more optimally for future sales decisions.
 Unique features of this application include identifying if a Lead to be added in is a duplicate,
@@ -24,7 +24,7 @@ a salesperson to know if one of their contacts changed companies.
 *More importantly, CRM Book is optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast,
 CRM Book can get your contact management tasks done faster than traditional GUI apps.
 Interested? Jump to the <<Quick Start>> to get started. Enjoy!
-
+//end::description[]
 == Quick Start
 
 .  Ensure you have Java version `1.8.0_60` or later installed in your Computer.
@@ -112,7 +112,8 @@ Examples:
 Shows a list of all Leads and Contacts in the CRM. +
 Format: `l`, `list`
 
-=== Displaying all Leads: `disp`, `display`
+//tag::display[]
+=== Displaying all Leads or Contacts: `disp`, `display`
 
 Shows a list of either Leads or Contacts in the CRM. +
 Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
@@ -121,6 +122,7 @@ Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
 * The search is case insensitive. e.g `lead` will match `Lead`
 * Only a full word will be matched e.g. `Contact` will not match `Contacts`
 ****
+//tag::display[]
 
 === Editing a person : `e`, `edit`
 
