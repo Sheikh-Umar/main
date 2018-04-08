@@ -51,7 +51,7 @@ public class FindCommandParserTest {
         assertParseSuccess(parser, "johntan@gmail.com", expectedFindCommand);
 
         // multiple whitespaces between keywords
-        assertParseSuccess(parser, " \n johntan@gmail.com \n \t ericlee@hotmail.com  \t", expectedFindCommand);
+        assertParseSuccess(parser, " \n johntan@gmail.com  \t", expectedFindCommand);
     }
     //@@author
 }
