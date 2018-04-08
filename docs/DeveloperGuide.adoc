@@ -1430,6 +1430,7 @@ Use case ends.
 +
 Use case ends.
 
+// tag:displaylistusecase[]
 === Use case: User seeks Lead list or Contact list
 
 *MSS*
@@ -1446,6 +1447,7 @@ Use case ends.
 ** 1a1. CRM Book displays an empty list.
 +
 Use case ends.
+// end:displaylistusecase[]
 
 === Use case: User posts to LinkedIn
 
