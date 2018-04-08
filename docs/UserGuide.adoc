@@ -122,7 +122,7 @@ Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
 * The search is case insensitive. e.g `lead` will match `Lead`
 * Only a full word will be matched e.g. `Contact` will not match `Contacts`
 ****
-//tag::display[]
+//end::display[]
 
 === Editing a person : `e`, `edit`
 
