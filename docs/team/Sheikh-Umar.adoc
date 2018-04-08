@@ -14,11 +14,11 @@ such as identifying duplicates.
 
 == Summary of contributions
 
-* *Major enhancement*: Added the ability to retrieve a desired list of non-duplicate data.
-** What it does: Informs the user if a Lead to be added in is already in the CRM Book either as a Lead or a Contact, and allows the user to retrieve a list of either Leads or Contacts.
+* *Major enhancement*: Displaying list of non-duplicate Leads and Contacts.
+** What it does: Informs the user if a Lead to be added in is already in the CRM Book either as a Lead or a Contact, and allows the user to see a Lead list and Contact list separately.
 ** Justification: Salespeople often face the issue of duplicate data as the CRM applications that they are using does not detect duplicates. Furthermore, the CRM application that they are using may not be able to display Leads and Contacts separately.
 Hence, this enhancement tackles this issues so that the user will have a more pleasant experience with a CRM application.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives.
 
 * *Minor enhancement*: Created an alias command for basic commands so that the user can specify the desired action quickly.
 
@@ -28,12 +28,6 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 
 ** Project management:
 *** Managed the collation of code of my team for releases `v1.4` - `v1.5rc` (2 releases) on GitHub
-** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
-** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com/CS2103JAN2018-F11-B1/main/pull/158[#158], https://github.com/CS2103JAN2018-F11-B1/main/pull/159[#159]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
 
 == Contributions to the User Guide
 
