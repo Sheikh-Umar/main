@@ -1240,7 +1240,6 @@ David Ten: +
 * Allows a Salesperson to be alerted when one of their Contacts move companies +
 * This allows them to sell to a new account using their old Contact.
 
-// tag:umarmarjorandminorenhancement[]
 Umar: +
 **Major feature** : Displaying list of non-duplicate Leads and Contacts
 
@@ -1256,7 +1255,7 @@ Hence, doing a command using its alias will ensure he/she can do a certain comma
 
 
 *Value proposition*: manage contacts faster than a typical mouse/GUI driven app
-// end:umarmarjorandminorenhancement[]
+
 ZHU Leyan: +
 **Major Feature** : Bulk Import of Leads
 

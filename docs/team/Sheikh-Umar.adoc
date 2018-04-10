@@ -37,4 +37,10 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=umarmarjorandminorenhancement]
+include::https://github.com/Sheikh-Umar/main/blob/9e6343360b49325a1811695b0bfa5de8a2274331/docs/DeveloperGuide.adoc#alias-commands-feature
+
+include::https://github.com/Sheikh-Umar/main/blob/9e6343360b49325a1811695b0bfa5de8a2274331/docs/DeveloperGuide.adoc#identifying-a-duplicate-feature
+
+include::https://github.com/Sheikh-Umar/main/blob/9e6343360b49325a1811695b0bfa5de8a2274331/docs/DeveloperGuide.adoc#displaying-lead-list-and-contact-list-feature
+
+include::https://github.com/Sheikh-Umar/main/blob/9e6343360b49325a1811695b0bfa5de8a2274331/docs/DeveloperGuide.adoc#use-case-user-seeks-lead-list-or-contact-list
