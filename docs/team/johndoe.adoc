@@ -61,6 +61,8 @@ include::../UserGuide.adoc[tag=dataencryption]
 
 include::../DeveloperGuide.adoc[tag=undoredo]
 
+include::../DeveloperGuide.adoc[tag=dataencryption]
+
 == PROJECT: PowerPointLabs
 
 ---
