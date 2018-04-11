@@ -47,7 +47,7 @@ public class ConvertCommand extends UndoableCommand {
     //@@author Sheikh-Umar
     public static final String MESSAGE_DUPLICATE_PERSON = "This Lead/Contact already exists in the CRM Book.";
     //@@author
-
+    //@@author WoodyLau
     private final Index index;
 
     private Lead oldLead;
