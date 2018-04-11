@@ -20,7 +20,11 @@ such as identifying duplicates.
 Hence, this enhancement tackles this issues so that the user will have a more pleasant experience with a CRM application.
 ** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives.
 
-* *Minor enhancement*: Created an alias command for basic commands so that the user can specify the desired action quickly.
+* *Minor enhancement*: Created an alias command for basic commands
+** What it does: User can enter the desired action quickly.
+** Justification: Salespeople may want the CRM Book to do a command as quickly as possible. This will involve typing as few command words as possible.
+** Highlights: This enhancement affects existing commands and commands to be added in future, and certain commands may share the same alias. For example, the sort and select commands may share the alias command 's'.
+Hence, for each command, a unique alias is used.
 
 * *Code contributed*: [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/functional/Sheikh-Umar.md[Functional code]] [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/test/Sheikh-Umar.md[Test code]]
 
