@@ -114,7 +114,7 @@ Examples:
 Shows a list of all Leads and Contacts in the CRM. +
 Format: `l`, `list`
 
-//tag::display[]
+//tag::displaylist[]
 === Displaying all Leads or all Contacts: `disp`, `display`
 
 Shows a list of either Leads or Contacts in the CRM. +
@@ -124,7 +124,7 @@ Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
 * The search is case insensitive. e.g `lead` will match `Lead`
 * Only a full word will be matched e.g. `Contact` will not match `Contacts`
 ****
-//end::display[]
+//end::displaylist[]
 
 === Editing a person : `e`, `edit`
 
