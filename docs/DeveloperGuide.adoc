@@ -770,7 +770,7 @@ The following action diagram shows how the operation of displaying the Leads or 
 image::DisplayListOfACertainTypeActionDiagram.png[width="800"]
 
 ==== Design Considerations
-===== Aspect: How displaying Lead list or Contact list works
+===== Aspect: How displaying Lead list and Contact list works
 
 * **Alternative 1 (current choice):** Iterate through the CRM Book for persons that match the keyword that user entered just like the FindCommand.
 ** Pros: Iteration will be performed in linear time, and utilises the functionality of the FindCommand.
@@ -801,6 +801,12 @@ The phone number and email address that the user entered will be checked in the 
 If either the phone number of email address is found in the list,
 the CRM Book will display the Leads and/or Contacts that match the keywords entered.
 If not, the CRM Book will display zero Leads and Contacts found.
+
+==== Design Considerations
+===== Aspect: How to implement finding phone numbers and email addresses
+* **Alternative 1 (current choice):** Edit the current search implementation to include finding phone numbers and email addresses.
+** Pros: Search will be performed in linear time, and utilises an existing portion of code.
+
 // end::findbyphonenumberandemailaddress[]
 
 // tag::changeTheme[]
