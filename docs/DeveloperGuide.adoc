@@ -1293,9 +1293,9 @@ David Ten: +
 * This allows them to sell to a new account using their old Contact.
 
 Umar: +
-**Major feature** : Added smart duplicate detection and display list of Leads and Contacts
+**Major feature** : Added duplicate detection and display list of Leads and Contacts
 
-* Implement smarter duplicate detection by verifying the whether the phone number or email address of a Lead to be entered matches any of the phone numbers or email addresses
+* Implement duplicate detection by verifying the whether the phone number or email address of a Lead to be entered matches any of the phone numbers or email addresses
 currently stored in the CRM Book.
 * Implement the display of Leads list and Contacts list separately at the salesperson's request.
 
