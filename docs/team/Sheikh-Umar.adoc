@@ -1,4 +1,4 @@
-= Sheikh Umar - Project Portfolio
+= Sheikh Umar Bin Shaik Abu Bakar Banafe' - Project Portfolio
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
