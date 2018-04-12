@@ -53,14 +53,9 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=alias]
 
-include::../DeveloperGuide.adoc[tag=duplicate]
+<<../DeveloperGuide.adoc#310-alias-commands-feature, Alias Commands feature>>
 
-include::../DeveloperGuide.adoc[tag=display]
+<<../DeveloperGuide.adoc#311-identifying-a-duplicate-feature, Identify Duplicates feature>>
 
-include::../DeveloperGuide.adoc[tag=findbyphonenumberandemailaddress]
-
-include::../DeveloperGuide.adoc[tag=findphonenumberandemailaddressusecase]
-
-include::../DeveloperGuide.adoc[tag=displaylistusecase]
+<<../DeveloperGuide.adoc#312-displaying-lead-list-and-contact-list-feature, Displaying Lead list and Contact list feature>>
