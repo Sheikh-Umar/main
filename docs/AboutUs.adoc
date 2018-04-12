@@ -23,7 +23,7 @@ image::sheikh-umar.png[width="150", align="left"]
 {empty}[https://github.com/Sheikh-Umar[github]] [<<Sheikh-Umar#, portfolio>>]
 
 Role: Documentation + Deliverables and deadlines +
-Responsibilities: Duplicate detection + Command Aliases + Display of Lead and Contact lists + Enhancing the Find Command
+Responsibilities: Duplicate detection, Basic command aliases, Display of Lead and Contact lists, Enhancing the Find Command
 
 '''
 
