@@ -54,3 +54,7 @@ include::../UserGuide.adoc[tag=displaylist]
 |===
 
 include::../DeveloperGuide.adoc[tag=alias]
+
+include::../DeveloperGuide.adoc[tag=duplicate]
+
+include::../DeveloperGuide.adoc[tag=display]
