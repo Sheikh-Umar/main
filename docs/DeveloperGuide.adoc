@@ -1504,8 +1504,8 @@ Use case ends.
 *MSS*
 
 1. User enters keywords (phone numbers and/or email addresses) for find command.
-2. CRM searches for Leads and Contacts that match the keywords.
-3. User sees the Leads and Contacts that match the keywords.
+2. CRM searches for Leads and/or Contacts that match with the keywords.
+3. User sees the Leads and/or Contacts that match with the keywords.
 
 *Extensions*
 
@@ -1516,7 +1516,7 @@ Use case ends.
 +
 Use case ends.
 
-* 2a. CRM Book is unable to find Leads and Contacts that matches with the keywords.
+* 2a. CRM Book is unable to find Leads and/or Contacts that match with the keywords.
 
 ** 2a1. User sees an empty list.
 +
