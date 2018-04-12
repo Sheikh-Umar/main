@@ -777,11 +777,14 @@ image::DisplayListOfACertainTypeActionDiagram.png[width="800"]
 // end::display[]
 
 // tag::findbyphonenumberandemailaddress[]
-=== Finding a Lead or Contact based on phone numbers and email addresses feature
+=== Enhancement of Find Command feature
+==== Reason for Implementation
+The user may want to search for Leads and Contacts based on phone numbers and email addresses rather than names.
+
 ==== Current Implementation
 The CRM Book currently searches for a Lead or Contact based on their name.
 
-The feature is implemented by editing the Find Command to search for phone numbers and email addresses +
+This command can be further improved by being able to find phone numbers and email addresses. +
 
 The following is how the feature will be implemented:
 [source, java]
@@ -796,8 +799,8 @@ public boolean test(Person person) {
 
 The phone number and email address that the user entered will be checked in the list of all Leads and Contacts.
 If either the phone number of email address is found in the list,
-the CRM Book will display the Lead/Contact that matches the keywords entered.
-If not, the CRM Book will display zero Leads/Contacts found.
+the CRM Book will display the Leads and/or Contacts that match the keywords entered.
+If not, the CRM Book will display zero Leads and Contacts found.
 // end::findbyphonenumberandemailaddress[]
 
 // tag::changeTheme[]
@@ -1290,7 +1293,7 @@ David Ten: +
 * This allows them to sell to a new account using their old Contact.
 
 Umar: +
-**Major feature** : Displaying list of non-duplicate Leads and Contacts
+**Major feature** : Added smart duplicate detection and display list of Leads and Contacts
 
 * Implement smarter duplicate detection by verifying the whether the phone number or email address of a Lead to be entered matches any of the phone numbers or email addresses
 currently stored in the CRM Book.
@@ -1301,9 +1304,6 @@ currently stored in the CRM Book.
 * Ensures that commands can be performed using its alias. +
 * In the sales industry, a person may type fast and would want to execute a command quickly.
 Hence, doing a command using its alias will ensure he/she can do a certain command quicker.
-
-
-*Value proposition*: manage contacts faster than a typical mouse/GUI driven app
 
 ZHU Leyan: +
 **Major Feature** : Bulk Import of Leads
@@ -1499,13 +1499,13 @@ Use case ends.
 // end:displaylistusecase[]
 
 // tag:findphonenumberandemailaddressusecase[]
-=== Use case: User enters phone number and/or email address to find
+=== Use case: User enters phone numbers and/or email addresses to find
 
 *MSS*
 
-1. User enters keywords (phone number and/or email addresses) for find command.
+1. User enters keywords (phone numbers and/or email addresses) for find command.
 2. CRM searches for Leads and Contacts that match the keywords.
-3. User sees the Leads and Contacts that match the keywords
+3. User sees the Leads and Contacts that match the keywords.
 
 *Extensions*
 
@@ -1516,9 +1516,9 @@ Use case ends.
 +
 Use case ends.
 
-* 2a. CRM Books is unable to find Lead/Contact that matches keyword.
+* 2a. CRM Book is unable to find Leads and Contacts that matches with the keywords.
 
-** 3a. User sees zero Leads and Contacts found.
+** 2a1. User sees an empty list.
 +
 Use case ends.
 // end:displaylistusecase[]
