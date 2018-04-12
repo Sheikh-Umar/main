@@ -32,7 +32,7 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 * *Other contributions*:
 
 ** Community:
-*** Reported bugs and suggestions for other teams in the class
+*** Reported bugs and suggestions for other teams in the class (examples: https://github.com/CS2103JAN2018-W09-B2/main/issues/197[Issue #197])
 
 ** Project management:
 *** Managed the collation of code of my team for releases `v1.4` - `v1.5rc` (2 releases) on GitHub
