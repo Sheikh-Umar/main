@@ -45,7 +45,7 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=displaylist]
+<<../UserGuide.adoc#36-displaying-all-leads-or-all-contacts-disp-display, Display Command>>
 
 == Contributions to the Developer Guide
 
