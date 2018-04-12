@@ -18,7 +18,7 @@ Responsibilities: LinkedIn Integration
 
 '''
 
-=== Sheikh Umar Bin Shaik Abu Bakar Banafe'
+=== SHEIKH UMAR BIN SHAIK ABU BAKAR BANAFE'
 image::sheikh-umar.png[width="150", align="left"]
 {empty}[https://github.com/Sheikh-Umar[github]] [<<Sheikh-Umar#, portfolio>>]
 
