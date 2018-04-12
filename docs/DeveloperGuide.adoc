@@ -806,7 +806,6 @@ If not, the CRM Book will display zero Leads and Contacts found.
 ===== Aspect: How to implement finding phone numbers and email addresses
 * **Alternative 1 (current choice):** Edit the current search implementation to include finding phone numbers and email addresses.
 ** Pros: Search will be performed in linear time, and utilises an existing portion of code.
-
 // end::findbyphonenumberandemailaddress[]
 
 // tag::changeTheme[]
