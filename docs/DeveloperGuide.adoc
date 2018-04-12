@@ -1490,6 +1490,31 @@ Use case ends.
 Use case ends.
 // end:displaylistusecase[]
 
+// tag:findphonenumberandemailaddressusecase[]
+=== Use case: User enters phone number and/or email address to find
+
+*MSS*
+
+1. User enters keywords (phone number and/or email addresses) for find command.
+2. CRM searches for Leads and Contacts that match the keywords.
+3. User sees the Leads and Contacts that match the keywords
+
+*Extensions*
+
+[none]
+* 1a. User enters find command incorrectly.
+
+** 1a1. CRM Book displays error message.
++
+Use case ends.
+
+* 2a. CRM Books is unable to find Lead/Contact that matches keyword.
+
+** 3a. User sees zero Leads and Contacts found.
++
+Use case ends.
+// end:displaylistusecase[]
+
 === Use case: User posts to LinkedIn
 
 *MSS*
