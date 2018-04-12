@@ -432,7 +432,7 @@ e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *EditDetails* :  For Leads: `editdetails INDEX [c/COMPANY] [i/INDUSTRY] [r/RATING (number from 1 to 5)] [t/TITLE] [w/WEBSITE]` +
 For Contacts: `editdetails INDEX [c/COMPANY] [d/DEPARTMENT] [t/TITLE]`
 * *Find* : `f KEYWORD [MORE_KEYWORDS]`, `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `f Chris`, `find James Jake`
+e.g. `f Chris`, `find James Jake`, `f 99881122`, `find john@gmail.com`
 * *Linkedin_login* : `linklog`, `linkedin_login`
 * *Linkedin_share* : `linkshare [content]`, `linkedin_share [content]`
 * *List* : `l`, `list`
