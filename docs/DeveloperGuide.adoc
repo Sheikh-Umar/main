@@ -1632,8 +1632,6 @@ Use case ends.
 .  Should process a query and respond within 3 seconds.
 .  Should be compatible across Linux, Windows, and MacOS operating systems.
 
-_{More to be added}_
-
 [appendix]
 == Glossary
 
