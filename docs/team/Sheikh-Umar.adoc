@@ -57,4 +57,6 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 
 <<../DeveloperGuide.adoc#311-identifying-a-duplicate-feature, Identify Duplicates feature>>
 
-<<../DeveloperGuide.adoc#312-displaying-lead-list-and-contact-list-feature, Displaying Lead list and Contact list feature>>
+<<../DeveloperGuide.adoc#displaying-lead-list-and-contact-list-feature, Displaying Lead list and Contact list feature>>
+
+<<../DeveloperGuide.adoc#enhancement-of-find-command-feature, Enhancement of Find Command feature>>
