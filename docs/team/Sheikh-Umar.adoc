@@ -21,10 +21,8 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 ** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives.
 
 * *Minor enhancement*: Created an alias command for basic commands
-** What it does: User can make the CRM Book perform basic commands with a few letters.
-** Justification: Salespeople may want the CRM Book to do a basic command as quickly as possible. This will involve typing as few letters as possible.
-** Highlights: Ensuring that each alias command is unique. For example, the sort and select commands may share the alias command 's'. However, this will lead to one command being performed over the other.
-Hence, the sort command has the alias 'st', and the select command has the alias 's'. Examples of a basic command includes commands such as add, delete, clear, and find.
+
+* *Minor enhancement*: Enhanced find command to be able to search for phone numbers and email address.
 
 
 * *Code contributed*: [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/functional/Sheikh-Umar.md[Functional code]] [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/test/Sheikh-Umar.md[Test code]]
@@ -45,7 +43,23 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-<<../UserGuide.adoc#36-displaying-all-leads-or-all-contacts-disp-display, Display Command>>
+=== Displaying all Leads or all Contacts: `disp`, `display`
+
+Shows a list of either Leads or Contacts in the CRM. +
+Format: `disp Lead`, `display Lead`, `disp Contact`, `display Contact`
+
+****
+* The search is case insensitive. e.g `lead` will match `Lead`
+* Only a full word will be matched e.g. `Contact` will not match `Contacts`
+****
+
+=== Display Command Summary
+* *Display* : `disp KEYWORD`, `display KEYWORD` +
+e.g. `disp Lead`, `display Contact`
+
+=== Find Command Summary
+*Find* : `f KEYWORD [MORE_KEYWORDS]`, `find KEYWORD [MORE_KEYWORDS]` +
+e.g. `f Chris`, `find James Jake`, `f 99881122`, `find john@gmail.com`
 
 == Contributions to the Developer Guide
 
@@ -53,10 +67,180 @@ Hence, the sort command has the alias 'st', and the select command has the alias
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-<<../DeveloperGuide.adoc#310-alias-commands-feature, Alias Commands feature>>
+=== Alias Commands feature
+==== Current Implementation
 
-<<../DeveloperGuide.adoc#311-identifying-a-duplicate-feature, Identify Duplicates feature>>
+A command can be performed by typing in its alias rather than the word. +
+The following is an example of implementing the alias command for the list command: +
+[source, java]
+----
+public class ListCommand extends Command {
 
-<<../DeveloperGuide.adoc#displaying-lead-list-and-contact-list-feature, Displaying Lead list and Contact list feature>>
+    public static final String COMMAND_WORD = "list";
+    //@@author Sheikh-Umar
+    public static final String COMMAND_ALIAS = "l";
+    //@@author
 
-<<../DeveloperGuide.adoc#enhancement-of-find-command-feature, Enhancement of Find Command feature>>
+    public static final String MESSAGE_SUCCESS = "Listed all Leads and Contacts";
+
+
+    @Override
+    public CommandResult execute() {
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        return new CommandResult(MESSAGE_SUCCESS);
+    }
+}
+----
+
+The alias command for all other commands will follow a similar implementation. +
+
+==== Design Considerations
+===== Aspect: How to implement the alias command for all commands
+The feature is implemented by adding the alias of the command into its respective java document, and updating the AddressBookParser java document. +
+The feature is implemented this way to utilise the command java documents that are available as opposed to creating a new java document for a certain alias. +
+
+This feature is implemented to allow a user to enter a command without specifying the entire word of the command. +
+// end::alias[]
+
+// tag::duplicate[]
+=== Identifying a Duplicate feature
+==== Current Implementation
+The CRM Book will ensure that every Lead and Contact stored is a non-duplicate. +
+
+The feature is implemented by checking the phone number and email address of a new Lead with all of the phone numbers and email addresses of all leads and contacts currently in the CRM-Book. +
+
+The feature will be implemented on the add command because the current application detects duplicates at the add command. +
+The following is how the feature will be implemented: +
+[source, java]
+----
+public boolean contains(Person toCheck) {
+        requireNonNull(toCheck);
+        for (int i = 0; i < internalList.size(); i++) {
+            Person current = internalList.get(i);
+            if (current.getPhone().equals(toCheck.getPhone())
+                    || current.getEmail().equals(toCheck.getEmail())) {
+                return true;
+            }
+        }
+        return false;
+    }
+----
+
+The phone number and email address of a Lead will be checked in the list of all Leads and Contacts.
+If either the phone number of email address of the Lead to be added is found in the list,
+the CRM application will display a message that the lead is a duplicate and will reject this lead.
+
+The following action diagram shows how the operation of identifying a duplicate lead works:
+
+image::DetectDuplicateActivityDiagram.png[width="800"]
+
+==== Design Considerations
+===== Aspect: How to implement identifying a duplicate
+* **Alternative 1 (current choice):** Iterate through all Leads and Contacts in CRM-Book.
+** Pros: Search will be performed in linear time, and enhances an existing portion of code.
+// end::duplicate[]
+
+// tag::display[]
+=== Displaying Lead list and Contact list feature
+==== Current Implementation
+The CRM Book will be able to list out all Leads and Contacts separately.
+
+The feature is implemented by checking on the type of the persons already stored in the CRM, and displaying all persons that match the keyword (either Lead or Contact) that the user enters. +
+
+The feature is implemented through the DisplayCommand, which is based on FindCommand.
+Hence, the DisplayCommand will operate similarly as the FindCommand, with the only difference being the DisplayCommand searches for all Leads or Contacts already in the CRM Book. +
+
+The `DisplayCommand` inherits from `Command`. It is implemented this way:
+[source, java]
+----
+public class DisplayCommand extends Command {
+    @Override
+    public CommandResult execute() {
+        // … import logic …
+    }
+}
+----
+
+The following action diagram shows how the operation of displaying the Leads or Contacts list works:
+
+image::DisplayListOfACertainTypeActionDiagram.png[width="800"]
+
+==== Design Considerations
+===== Aspect: How displaying Lead list and Contact list works
+
+* **Alternative 1 (current choice):** Iterate through the CRM Book for persons that match the keyword that user entered just like the FindCommand.
+** Pros: Iteration will be performed in linear time, and utilises the functionality of the FindCommand.
+// end::display[]
+
+// tag::findbyphonenumberandemailaddress[]
+=== Enhancement of Find Command feature
+==== Reason for Implementation
+The user may want to search for Leads and Contacts based on phone numbers and email addresses rather than names.
+
+==== Current Implementation
+The CRM Book currently searches for a Lead or Contact based on their name.
+
+This command can be further improved by being able to find phone numbers and email addresses. +
+
+The following is how the feature will be implemented:
+[source, java]
+----
+public boolean test(Person person) {
+         return keywords.stream().anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword)                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword)
+                        || StringUtil.containsWordIgnoreCase(person.getPhone().value, keyword)
+                        || StringUtil.containsWordIgnoreCase(person.getEmail().value, keyword));
+     }
+ }
+----
+
+The phone number and email address that the user entered will be checked in the list of all Leads and Contacts.
+If either the phone number of email address is found in the list,
+the CRM Book will display the Leads and/or Contacts that match the keywords entered.
+If not, the CRM Book will display zero Leads and Contacts found.
+
+==== Design Considerations
+===== Aspect: How to implement finding phone numbers and email addresses
+* **Alternative 1 (current choice):** Edit the current search implementation to include finding phone numbers and email addresses.
+** Pros: Search will be performed in linear time, and utilises an existing portion of code.
+
+=== Use case: User seeks Lead list or Contact list
+
+*MSS*
+
+1. User enters command for Lead list or Contact list.
+2. CRM retrieves the Lead list or Contact list.
+3. User sees the Lead list or Contact list.
+
+*Extensions*
+
+[none]
+* 1a. User enters a keyword that is neither Lead nor Contact.
+
+** 1a1. CRM Book displays an empty list.
++
+Use case ends.
+// end:displaylistusecase[]
+
+// tag:findphonenumberandemailaddressusecase[]
+=== Use case: User enters phone numbers and/or email addresses to find
+
+*MSS*
+
+1. User enters keywords (phone numbers and/or email addresses) for find command.
+2. CRM searches for Leads and/or Contacts that match with the keywords.
+3. User sees the Leads and/or Contacts that match with the keywords.
+
+*Extensions*
+
+[none]
+* 1a. User enters find command incorrectly.
+
+** 1a1. CRM Book displays error message.
++
+Use case ends.
+
+* 2a. CRM Book is unable to find Leads and/or Contacts that match with the keywords.
+
+** 2a1. User sees an empty list.
++
+Use case ends.
