@@ -33,7 +33,7 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 *** Reported bugs and suggestions for other teams in the class (examples: https://github.com/CS2103JAN2018-W09-B2/main/issues/197[Issue #197], https://github.com/CS2103JAN2018-W09-B2/main/issues/202[Issue #202])
 
 ** Project management:
-*** Managed the collation of code of my team for releases `v1.5rc` - `v1.5` (2 releases) on GitHub (Pull request https://github.com/CS2103JAN2018-F11-B1/main/pull/232[#232])
+*** Managed the collation of code of my team for releases `v1.4` - `v1.5` (3 releases) on GitHub
 ** Enhancements to existing features:
 *** Made the find command be able to search for phone numbers and email addresses (Pull request https://github.com/CS2103JAN2018-F11-B1/main/pull/200[#200])
 
