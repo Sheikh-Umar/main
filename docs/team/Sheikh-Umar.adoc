@@ -21,9 +21,12 @@ Hence, this enhancement tackles this issues so that the user will have a more pl
 ** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives.
 
 * *Minor enhancement*: Created an alias command for basic commands
+** What it does: User can make the CRM Book perform basic commands with a few letters.
+** Justification: Salespeople may want the CRM Book to do a basic command as quickly as possible. This will involve typing as few letters as possible.
 
 * *Minor enhancement*: Enhanced find command to be able to search for phone numbers and email address.
-
+** What it does: User can search for Leads and Contacts based on phone numbers and email address.
+** Justification: Salespeople may want to search for Leads and Contacts based on personal inforamtion other than names.
 
 * *Code contributed*: [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/functional/Sheikh-Umar.md[Functional code]] [https://github.com/CS2103JAN2018-F11-B1/main/blob/master/collated/test/Sheikh-Umar.md[Test code]]
 
