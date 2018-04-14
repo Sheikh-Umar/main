@@ -1818,7 +1818,7 @@ These instructions only provide a starting point for testers to work on; testers
 // end::testingforexecutingaliascommands[]
 
 // tag::testingforfindingphonenumberandemailaddresses[]
-=== Finding Phone numbers and Email addresses
+=== Finding Lead(s) and Contact(s) via Phone Numbers and Email Addresses
 
 . Finding Lead(s) or Contacts(s) based on phone numbers and email addresses.
 

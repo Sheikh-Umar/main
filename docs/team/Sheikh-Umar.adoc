@@ -79,3 +79,5 @@ include::../DeveloperGuide.adoc[tag=testingfordisplaycommand]
 include::../DeveloperGuide.adoc[tag=testingforduplicatedetection]
 
 include::../DeveloperGuide.adoc[tag=testingforexecutingaliascommands]
+
+include::../DeveloperGuide.adoc[tag=testingforfindingphonenumberandemailaddresses]
