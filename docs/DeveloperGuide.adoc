@@ -1765,7 +1765,7 @@ These instructions only provide a starting point for testers to work on; testers
 
 
 // tag::testingfordisplaycommand[]
-=== Displaying Leads or Contacts list
+=== Displaying Lead or Contact list
 
 . Finding Lead(s) or Contacts(s) based on phone numbers and email addresses.
 
