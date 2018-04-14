@@ -38,7 +38,7 @@ Hence, this enhancement tackles these issues so that the user will have a more p
 ** Project management:
 *** Managed the collation of code of my team for releases `v1.4` - `v1.5` (3 releases) on GitHub
 ** Enhancements to existing features:
-*** Made the Find command be able to search for phone numbers and email addresses (Pull request https://github.com/CS2103JAN2018-F11-B1/main/pull/200[#200])
+*** Made the find command be able to search for phone numbers and email addresses (Pull request https://github.com/CS2103JAN2018-F11-B1/main/pull/200[#200])
 
 == Contributions to the User Guide
 
