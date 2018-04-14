@@ -755,6 +755,22 @@ image::DetectDuplicateActivityDiagram.png[width="800"]
 ** Pros: Search will be performed in linear time, and enhances an existing portion of code.
 // end::duplicate[]
 
+// tag::groupparentcompany[]
+=== Adding a Parent Company tag feature [Coming in v2.0]
+==== Current Implementation
+It is possible that the user may want to keep track of the companies associated with the Leads and Contacts in the CRM Book.
+For example, Skype and Nokia are two different companies whose parent company is Microsoft.
+Hence, every Lead and Contact will have an additional tag named after the parent company of their current companies.
+The following action diagram illustrates how this will be implemented:
+
+image::AddParentCompanyTag.png[width="800"]
+
+==== Design Considerations
+===== Aspect: How adding a Parent Company tag feature works
+* **Alternative 1 (current choice):** If the user updated the Company of a Lead or Contact, the CRM Book determines if this company has a parent company using a Google search.
+If yes, it automatically adds a tag to this Lead or Contact labelled as the parent company of the company of the Lead or Contact.
+// end::groupparentcompany[]
+
 // tag::display[]
 === Displaying Lead list and Contact list feature
 ==== Current Implementation
