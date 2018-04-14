@@ -428,7 +428,6 @@ The `blue` theme is the default theme. When user opens CRM Book for the first ti
 If the user changes the theme, it will be saved in user preferences so that CRM Book will display the user preferred theme in subsequent runs. +
 Format: `changetheme THEME` +
 Example: `changetheme light`
-
 //end::changetheme[]
 
 === Saving the data
@@ -454,14 +453,7 @@ If a person card was selected while the office location is set, you have to sele
 
 [TIP]
 Success of this command is also dependent on the success of Google intepreting the address entered
-
 // end::getdirections[]
-
-// tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
-
-_{explain how the user can enable/disable data encryption}_
-// end::dataencryption[]
 
 == FAQ
 
