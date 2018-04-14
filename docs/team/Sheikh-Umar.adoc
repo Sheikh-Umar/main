@@ -75,3 +75,5 @@ include::../DeveloperGuide.adoc[tag=addparentcompanytagusecase]
 include::../DeveloperGuide.adoc[tag=findphonenumberandemailaddressusecase]
 
 include::../DeveloperGuide.adoc[tag=testingfordisplaycommand]
+
+include::../DeveloperGuide.adoc[tag=testingforduplicatedetection]
