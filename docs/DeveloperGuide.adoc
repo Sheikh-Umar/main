@@ -1805,7 +1805,7 @@ These instructions only provide a starting point for testers to work on; testers
    Expected: Duplicate Lead/Contact message shown. Timestamp in the status bar is updated.
 // end::testingforduplicatedetection[]
 
-// tag::executingaliascommands[]
+// tag::testingforexecutingaliascommands[]
 === Executing commands via alias
 
 . Executing commands via its alias
@@ -1815,7 +1815,7 @@ These instructions only provide a starting point for testers to work on; testers
    Expected: All Leads in the CRM Book. Timestamp in the status bar is updated.
 .. Test case: `l`, `list` +
    Expected: List all Leads and Contacts in the CRM Book. Timestamp in the status bar is updated.
-// end::executingaliascommands[]
+// end::testingforexecutingaliascommands[]
 
 // tag::testingforfindingphonenumberandemailaddresses[]
 === Finding Phone numbers and Email addresses
